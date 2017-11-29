@@ -1,0 +1,49 @@
+<div class="status-ddl">
+  <div class="pt5 fl pr20">
+    <label class="control-label">Status:</label>
+  </div>
+  <div class="fl" style="min-width:225px">
+    <p-dropdown [options]="status" [(ngModel)]="instructionsTabData?.progservStatus.name" name="progservStatus.name"></p-dropdown>
+  </div>
+</div>
+<div class="box-header bg-white pl30 pt20 pb15 border">
+  <h3 class="box-title fs18 txt-violet">Editing Instructions</h3>
+  <div class="box-tools pull-right">
+    <a class="cursor" (click)="add.toggle($event)" role="button">
+      <i class="fa fa-plus" aria-hidden="true"></i>
+    </a>
+    <a href="#" id="panel-fullscreen" role="button" title="Toggle fullscreen">
+      <i class="fa fa-expand"></i>
+    </a>
+  </div>
+</div>
+<div class="box-body bg-white border nbt pt20 mb15">
+  <p-dataTable [value]="" class="hover-none" [rows]="3" [paginator]="true" [pageLinks]="3" [rowsPerPageOptions]="[10,25,50,100]">
+    <p-column field="name" header="Key Subject" [sortable]="true"></p-column>
+    <p-column field="tag" header="Topic" [sortable]="true"></p-column>
+    <p-column field="name" header="Instruction" [sortable]="true"></p-column>
+    <p-column field="tag" header="Name" [sortable]="true"></p-column>
+    <p-column field="name" header="Date/ Time" [sortable]="true"></p-column>
+  </p-dataTable>
+</div>
+<div class="col-md-12 ac mt15">
+  <button type="submit" class="btn btn-info mr15">Save</button>
+  <button type="button" class="btn btn-white">Cancel</button>
+</div>
+<div class="clearfix"></div>
+<p-overlayPanel #add>
+  <div class="p10">
+    <div class="form-group">
+      <label for="field-7" class="control-label">Type</label>
+      <p-dropdown [options]="sourceTypeSelect2Dropdown" name="Type"></p-dropdown>
+    </div>
+    <div class="form-group">
+      <label for="field-7" class="control-label">Value</label>
+      <p-dropdown [options]="sourceTypeSelect2Dropdown" name="Value"></p-dropdown>
+    </div>
+    <div class="modal-footer">
+      <button type="submit" class="btn btn-info">Apply</button>
+      <button type="button" class="btn btn-white">Cancel</button>
+    </div>
+  </div>
+</p-overlayPanel>

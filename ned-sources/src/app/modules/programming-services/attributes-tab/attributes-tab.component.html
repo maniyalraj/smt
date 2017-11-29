@@ -1,0 +1,232 @@
+<div class="status-ddl">
+    <div class="pt5 fl pr20">
+        <label class="control-label">Status:</label>
+    </div>
+    <div class="fl" style="min-width:225px">
+        <p-dropdown [options]="status" [(ngModel)]="attributesTabData?.progservStatus.name" name="progservStatus.name"></p-dropdown>
+    </div>
+</div>
+<div class="box-header bg-white pl30 pt20 pb15 border">
+    <h3 class="box-title fs18 txt-violet">Editor Assignments</h3>
+    <div class="box-tools pull-right">
+        <a class="cursor" (click)="add.toggle($event)" role="button">
+            <i class="fa fa-plus" aria-hidden="true"></i>
+        </a>
+        <a href="#" id="panel-fullscreen" role="button" title="Toggle fullscreen">
+            <i class="fa fa-expand"></i>
+        </a>
+    </div>
+</div>
+<div class="box-body bg-white border nbt pt20 mb15">
+    <p-dataTable [value]="attributesTabData?.editorAssignments" [editable]="true">
+        <p-column field="assignmentType.name" header="Type" [sortable]="true" [editable]="false"></p-column>
+        <p-column header="Employee" [sortable]="true" [editable]="false">
+            <ng-template let-editorList="rowData" pTemplate type="body">
+                <span>
+                    {{editorList.editor.lastName}}, {{editorList.editor.firstName}}
+                </span>
+            </ng-template>
+        </p-column>
+    </p-dataTable>
+</div>
+<div class="box-header bg-white pl30 pt20 pb15 border">
+    <h3 class="box-title fs18 txt-violet">Attributes</h3>
+    <div class="box-tools pull-right">
+        <a class="cursor" (click)="add.toggle($event)" role="button">
+            <i class="fa fa-plus" aria-hidden="true"></i>
+        </a>
+        <a href="#" id="panel-fullscreen" role="button" title="Toggle fullscreen">
+            <i class="fa fa-expand"></i>
+        </a>
+    </div>
+
+</div>
+<div class="box-body bg-white border nbt pt20 mb15">
+    <p-dataTable [value]="attributesTabData?.sourceAttributes" [editable]="true" [rows]="10" [paginator]="true" [pageLinks]="3"
+        [rowsPerPageOptions]="[5,10,20]">
+        <p-column field="attributeType.name" header="Type" [sortable]="true" [editable]="false">
+            <ng-template let-col let-attribute="rowData" pTemplate="editor">
+                <p-dropdown [(ngModel)]="attribute.attributeType.name" [options]="attributeTypesSelect2Dropdown" name="name" [autoWidth]="false"
+                    [filter]="true"></p-dropdown>
+            </ng-template>
+        </p-column>
+        <p-column field="attributeValue.description" header="Value" [sortable]="true" [editable]="false">
+            <ng-template let-col let-attribute="rowData" pTemplate="editor">
+                <p-dropdown [options]="attributeTypesSelect2Dropdown" [(ngModel)]="attribute.attributeValue.description" name="description"
+                    [filter]="true"></p-dropdown>
+            </ng-template>
+        </p-column>
+    </p-dataTable>
+
+</div>
+<div class="box-header bg-white pl30 pt20 pb15 border">
+    <h3 class="box-title fs18 txt-violet">Programming Sources</h3>
+    <div class="box-tools pull-right">
+        <a class="cursor" role="button" (click)="openMedalPopup(advancedSearchModal)">
+            <i class="fa fa-search txt-blue" aria-hidden="true"></i>
+        </a>
+        <a href="#" id="panel-fullscreen" role="button" title="Toggle fullscreen">
+            <i class="fa fa-expand"></i>
+        </a>
+    </div>
+
+</div>
+<div class="box-body bg-white border nbt pt20 mb15">
+    <div class="col-md-12 mb20 ml15" style="position:relative; z-index:9">
+        <div class="fl pro-source-btn mr5">
+            ABCNEWS
+            <a href="" class="ml5">×</a>
+        </div>
+        <div class="fl pro-source-btn mr5">
+            ABCNEWS
+            <a href="" class="ml5">×</a>
+        </div>
+        <div class="fl pro-source-btn mr5">
+            ABCNEWS
+            <a href="" class="ml5">×</a>
+        </div>
+    </div>
+
+    <p-dataTable [value]="" class="hover-none" [rows]="3" [paginator]="true" [pageLinks]="3" [rowsPerPageOptions]="[10,25,50,100]">
+        <p-column [style]="{'width':'35px'}" selectionMode="multiple"></p-column>
+        <p-column field="name" header="Finder" [sortable]="true"></p-column>
+        <p-column field="tag" header="ProgServ ID" [sortable]="true"></p-column>
+        <p-column field="id" header="Name" [sortable]="true"></p-column>
+        <p-column field="tag" header="Call Sign / Alias" [sortable]="true"></p-column>
+        <p-column field="tag" header="ProgServ Type" [sortable]="true"></p-column>
+        <p-column field="id" header="Country" [sortable]="true"></p-column>
+    </p-dataTable>
+    <div class="col-md-12 ml15">
+        <div class="add-btn-position">
+            <button type="submit" class="btn btn-info btn-add" [disabled]="true" label="Disabled">Add</button>
+            <button type="button" class="btn btn-white btn-add" [disabled]="true" label="Disabled">Cancel</button>
+        </div>
+    </div>
+    <div class="col-md-12 ac mt25 border nbl nbb nbr pt20 ">
+        <button type="submit" class="btn btn-info mr15" [disabled]="true" label="Disabled">Save</button>
+        <button type="button" class="btn btn-white" [disabled]="true" label="Disabled">Cancel</button>
+    </div>
+</div>
+<ng-template #advancedSearchModal let-c="close" let-d="dismiss">
+    <form name="advancedSearch" (ngSubmit)="searchProgrammingService()" #advancedSearch="ngForm" novalidate autocomplete="off">
+        <div class="modal-header">
+            <h4 class="modal-title">Advanced Search</h4>
+            <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="col-md-12 pln prn">
+                        <div class="form-group">
+                            <label for="field-1" class="control-label">Finder</label>
+
+                            <input type="text" class="form-control" name="finder" [(ngModel)]="advancedSearchForm.finder" [maxlength]="128" autofocus="autofocus">
+                        </div>
+                        <div class="form-group">
+                            <label for="field-2" class="control-label">ProgServ ID</label>
+                            <input type="text" class="form-control" name="progservId" [(ngModel)]="advancedSearchForm.progservId" (keypress)="isNumber(event)">
+                        </div>
+                        <div class="form-group">
+                            <label for="field-3" class="control-label">Name</label>
+                            <input type="text" class="form-control" name="name" [(ngModel)]="advancedSearchForm.name" [maxlength]="50">
+                        </div>
+                        <div class="form-group">
+                            <label for="field-4" class="control-label">Call Sign/Alias</label>
+                            <input type="text" class="form-control" name="callSign" [(ngModel)]="advancedSearchForm.callSign" [maxlength]="7" (keypress)="checkNotASpecialCharacter(evt)">
+                        </div>
+                        <div class="form-group">
+                            <label for="field-5" class="control-label">Contact Name</label>
+                            <input type="text" class="form-control" name="contactName" [(ngModel)]="advancedSearchForm.contactName" (keypress)="checkNotANumber(event)">
+                        </div>
+                        <div class="form-group">
+                            <label for="field-6" class="control-label">Contact Phone Number</label>
+                            <input type="text" class="form-control" name="phoneNumber" [(ngModel)]="advancedSearchForm.phoneNumber">
+                        </div>
+                        <div class="form-group">
+                            <label>Relationship Type</label>
+                            <p-multiSelect [options]="relationshipTypesMultiSelect" [(ngModel)]="advancedSearchForm.relationshipTypes" name="relationshipTypes"></p-multiSelect>
+                        </div>
+                        <div class="form-group">
+                            <label for="field-5" class="control-label">Type History</label>
+                            <input type="text" class="form-control" name="contactName" [(ngModel)]="advancedSearchForm.contactName">
+                        </div>
+                        <div class="form-group">
+                            <label for="field-7" class="control-label">Source Type</label>
+                            <p-dropdown [options]="" [(ngModel)]="advancedSearchForm.sourceType" name="sourceType" [filter]="true"></p-dropdown>
+                        </div>
+                        <div class="form-group fr">
+                            <input name="noLongerEdited" [(ngModel)]="advancedSearchForm.noLongerEdited" type="checkbox" class="icheck-12" id="minimal-checkbox-1-12">
+                            <label for="minimal-checkbox-1-12">No Longer Edited</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 border nbt nbr nbb">
+                    <div class="col-md-12 pln prn">
+                        <div class="fr">
+                            <input name="primaryCountry" [(ngModel)]="advancedSearchForm.primaryCountry" type="checkbox" class="icheck-12" id="minimal-checkbox-1-13">
+                            <label for="minimal-checkbox-1-11">Primary Country</label>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Country</label>
+                            <p-multiSelect [options]="countriesMultiSelect" [(ngModel)]="advancedSearchForm.countries" name="countries"></p-multiSelect>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">City</label>
+                            <input type="text" class="form-control" [(ngModel)]="advancedSearchForm.city" name="city" [maxlength]="50">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">DMA</label>
+                            <p-dropdown [options]="dmaSelect2Dropdown" [(ngModel)]="advancedSearchForm.dma" name="dma" [filter]="true"></p-dropdown>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Affiliation</label>
+                            <p-dropdown [options]="affiliationSelect2Dropdown" [(ngModel)]="advancedSearchForm.affiliation" name="affiliation" [filter]="true"></p-dropdown>
+                        </div>
+                        <div class="form-group">
+                            <label for="field-7" class="control-label">Call Sign History</label>
+                            <input type="text" class="form-control" name="callSignHistory" [(ngModel)]="advancedSearchForm.callSignHistory">
+                        </div>
+                        <div class="form-group">
+                            <div class="form-group">
+                                <label for="field-7" class="control-label">Number History</label>
+                                <p-dropdown [options]="numberHistorySelect2Dropdown" [(ngModel)]="advancedSearchForm.numberHistory" name="numberHistory"
+                                    [filter]="true"></p-dropdown>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="field-7" class="control-label">Affiliation History</label>
+                            <p-dropdown [options]="affiliationHistorySelect2Dropdown" [(ngModel)]="advancedSearchForm.affiliationHistory" name="affiliationHistory"
+                                [filter]="true"></p-dropdown>
+                        </div>
+                        <div class="form-group">
+                            <label for="field-7" class="control-label">Editor Username</label>
+                            <input type="text" class="form-control" name="editorUsername" [(ngModel)]="advancedSearchForm.editorUsername">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-info">Search</button>
+            <button type="button" class="btn btn-white">Cancel</button>
+        </div>
+    </form>
+</ng-template>
+<p-overlayPanel #add>
+    <div class="p10">
+        <div class="form-group">
+            <label for="field-7" class="control-label">Type</label>
+            <p-dropdown [options]="" name="Type"></p-dropdown>
+        </div>
+        <div class="form-group">
+            <label for="field-7" class="control-label">Value</label>
+            <p-dropdown [options]="" name="Value"></p-dropdown>
+        </div>
+        <div class="modal-footer">
+            <button type="submit" disabled="disabled" class="btn btn-info">Apply</button>
+            <button type="button" disabled="disabled" class="btn btn-white">Cancel</button>
+        </div>
+    </div>
+</p-overlayPanel>

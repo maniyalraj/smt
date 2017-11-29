@@ -1,0 +1,3 @@
+.hover-none .ui-datatable-tablewrapper table tbody tr:hover {background: #fff;}
+.hover-none .ui-datatable-odd:hover {background: #fff !important;}
+.status-ddl {position:absolute; top:200px; right:15px;}

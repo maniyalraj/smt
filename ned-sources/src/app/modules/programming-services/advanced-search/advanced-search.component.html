@@ -1,0 +1,46 @@
+
+<app-prog-serv-searchbox (onFormSubmit)="listenSubmitEvent($event)"></app-prog-serv-searchbox>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper" id="content-wrapper">
+  <section class="content-header">
+    <h1 class="title pl30">Search: Programming Services</h1>
+  </section>
+  <section class="content">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="box">
+          <div class="box-header pl15 pt0 pb15">
+            <h3 class="box-title fs18 txt-violet">Search Results = {{searchResults}}</h3>
+            <div class="box-tools pull-right">
+              <a href="#" id="panel-fullscreen" role="button" title="Toggle fullscreen">
+                <i class="fa fa-expand"></i>
+              </a>
+            </div>
+          </div>
+          <!-- /.box-header -->
+          <div class="box-body">
+            <div class="row mb25">
+              <div class="col-md-12">
+
+                <p-dataTable [value]="advancedSearchResponse.results" [lazy]="true" [rows]="10" [paginator]="true" [pageLinks]="3" [totalRecords]="searchResults"
+                  (onLazyLoad)="loadProgrammingServicesLazy($event)" [rowsPerPageOptions]="[10,25,50,100]" selectionMode="single"
+                  dataKey="progservId" (onRowSelect)="onRowSelect($event)">
+                  <p-column field="finder" header="Finder" [sortable]="true"></p-column>
+                  <p-column field="progservId" header="ProgServ ID" [sortable]="true"></p-column>
+                  <p-column field="name" header="Name" [sortable]="true"></p-column>
+                  <p-column field="callSign" header="Call Sign / Alias" [sortable]="true"></p-column>
+                  <p-column field="sourceType.name" header="ProgServ Type" [sortable]="true"></p-column>
+                  <p-column field="country.name" header="Country" [sortable]="true"></p-column>
+                </p-dataTable>
+
+              </div>
+            </div>
+          </div>
+          <!-- /.box-body -->
+        </div>
+        <!-- /.box -->
+      </div>
+    </div>
+  </section>
+</div>
+<!-- /.content-wrapper -->

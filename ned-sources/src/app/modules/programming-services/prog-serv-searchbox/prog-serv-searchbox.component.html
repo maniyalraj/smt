@@ -1,0 +1,155 @@
+<form name="quickSearchForm" (ngSubmit)="validateQuickSearchForm()" #quickSearchForm="ngForm" novalidate id="ui_element"
+    class="search-panel" autocomplete="off">
+    <span class="searchbox">
+        <input [(ngModel)]="quickSearchInput" name="quickSearchInput" class="sb_input" type="text" placeholder="Enter Search Text Here"
+            tabindex="1" />
+    </span>
+    <ul class="sb_dropdown" *ngIf="enableSearchBox" (click)="stopHidingSearchDropdown()">
+        <!-- style="display: none; clear:both;"-->
+        <li>
+            <input type="radio" id="finder" [(ngModel)]="radios" name="radios1" value="finder">
+            <label for="finder">Finder</label>
+        </li>
+        <li>
+            <input type="radio" id="progservId" [(ngModel)]="radios" name="radios1" value="progservId" tabindex="2">
+            <label for="progservId">ProgServ ID </label>
+        </li>
+        <li>
+            <input type="radio" id="name" [(ngModel)]="radios" name="radios1" value="name" tabindex="3">
+            <label for="name">Name</label>
+        </li>
+        <li>
+            <input type="radio" id="callSign" [(ngModel)]="radios" name="radios1" value="callSign" tabindex="4">
+            <label for="callSign">Call Sign/Alias </label>
+        </li>
+        <li>
+            <input type="radio" id="city" [(ngModel)]="radios" name="radios1" value="city" tabindex="6">
+            <label for="city">City </label>
+        </li>
+        <li>
+            <input type="radio" id="contactname" [(ngModel)]="radios" name="radios1" value="contactName" tabindex="7">
+            <label for="contactname">Contact Name</label>
+        </li>
+        <li>
+            <div class="fr pl10 pr10 pt10 pb5 top-search">
+                <input id="noLongerEdited" tabindex="8" type="checkbox" [(ngModel)]="noLongerEdited" name="noLongerEdited">
+                <label for="noLongerEdited">No Longer Edited</label>
+            </div>
+        </li>
+        <li (click)="openMedalPopup(advancedSearchModal)">
+            <div class="top-search more pt10 pb10 pr10 pl10" id="">
+                <div class="search-more-btn"> More </div>
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </div>
+        </li>
+    </ul>
+</form>
+
+<ng-template #advancedSearchModal let-c="close" let-d="dismiss">
+    <form name="advancedSearch" (ngSubmit)="searchProgrammingService()" #advancedSearch="ngForm" novalidate autocomplete="off">
+        <div class="modal-header">
+            <h4 class="modal-title">Advanced Search</h4>
+            <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="col-md-12 pln prn">
+                        <div class="form-group">
+                            <label for="field-1" class="control-label">Finder</label>
+                            <!--label class="txt-red fs12 fr">Required Field</label-->
+                            <input type="text" class="form-control" name="finder" [(ngModel)]="advancedSearchForm.finder" [maxlength]="128" autofocus="autofocus">
+                        </div>
+                        <div class="form-group">
+                            <label for="field-2" class="control-label">ProgServ ID</label>
+                            <input type="text" class="form-control" name="progservId" [(ngModel)]="advancedSearchForm.progservId" (keypress)="isNumber(event)">
+                        </div>
+                        <div class="form-group">
+                            <label for="field-3" class="control-label">Name</label>
+                            <input type="text" class="form-control" name="name" [(ngModel)]="advancedSearchForm.name" [maxlength]="50">
+                        </div>
+                        <div class="form-group">
+                            <label for="field-4" class="control-label">Call Sign/Alias</label>
+                            <input type="text" class="form-control" name="callSign" [(ngModel)]="advancedSearchForm.callSign" [maxlength]="7" (keypress)="checkNotASpecialCharacter(evt)">
+                        </div>
+                        <div class="form-group">
+                            <label for="field-5" class="control-label">Contact Name</label>
+                            <input type="text" class="form-control" name="contactName" [(ngModel)]="advancedSearchForm.contactName" (keypress)="checkNotANumber(event)">
+                        </div>
+                        <div class="form-group">
+                            <label for="field-6" class="control-label">Contact Phone Number</label>
+                            <input type="text" class="form-control" name="phoneNumber" [(ngModel)]="advancedSearchForm.phoneNumber">
+                        </div>
+                        <div class="form-group">
+                            <label>Relationship Type</label>
+                            <p-multiSelect [options]="relationshipTypesMultiSelect" [(ngModel)]="advancedSearchForm.relationshipTypes" name="relationshipTypes"></p-multiSelect>
+                        </div>
+                        <div class="form-group">
+                            <label for="field-5" class="control-label">Type History</label>
+                            <input type="text" class="form-control" name="typeHistory" [(ngModel)]="advancedSearchForm.typeHistory">
+                        </div>
+                        <div class="form-group">
+                            <label for="field-7" class="control-label">Source Type</label>
+                            <p-dropdown [options]="sourceTypeSelect2Dropdown" [(ngModel)]="advancedSearchForm.sourceType" name="sourceType" [filter]="true"></p-dropdown>
+                        </div>
+                        <div class="form-group fr">
+                            <input name="noLongerEdited" [(ngModel)]="advancedSearchForm.noLongerEdited" type="checkbox" class="icheck-12" id="minimal-checkbox-1-12">
+                            <label for="minimal-checkbox-1-12">No Longer Edited</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 border nbt nbr nbb">
+                    <div class="col-md-12 pln prn">
+                        <div class="fr">
+                            <input name="primaryCountry" [(ngModel)]="advancedSearchForm.primaryCountry" type="checkbox" class="icheck-12" id="minimal-checkbox-1-13">
+                            <label for="minimal-checkbox-1-11">Primary Country</label>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Country</label>
+                            <p-multiSelect [options]="countriesMultiSelect" [(ngModel)]="advancedSearchForm.countries" name="countries"></p-multiSelect>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">City</label>
+                            <input type="text" class="form-control" [(ngModel)]="advancedSearchForm.city" name="city" [maxlength]="50">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">DMA</label>
+                            <p-dropdown [options]="dmaSelect2Dropdown" [(ngModel)]="advancedSearchForm.dma" name="dma" [filter]="true"></p-dropdown>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Affiliation</label>
+                            <p-dropdown [options]="affiliationSelect2Dropdown" [(ngModel)]="advancedSearchForm.affiliation" name="affiliation" [filter]="true"></p-dropdown>
+                        </div>
+                        <div class="form-group">
+                            <label for="field-7" class="control-label">Call Sign History</label>
+                            <input type="text" class="form-control" name="callSignHistory" [(ngModel)]="advancedSearchForm.callSignHistory">
+                        </div>
+                        <div class="form-group">
+                            <div class="form-group">
+                                <label for="field-7" class="control-label">Number History</label>
+                                <p-dropdown [options]="numberHistorySelect2Dropdown" [(ngModel)]="advancedSearchForm.numberHistory" name="numberHistory"
+                                    [filter]="true"></p-dropdown>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="field-7" class="control-label">Affiliation History</label>
+                            <p-dropdown [options]="affiliationHistorySelect2Dropdown" [(ngModel)]="advancedSearchForm.affiliationHistory" name="affiliationHistory"
+                                [filter]="true"></p-dropdown>
+                        </div>
+                        <div class="form-group">
+                            <label for="field-7" class="control-label">Editor Username</label>
+                            <input type="text" class="form-control" name="editorUsername" [(ngModel)]="advancedSearchForm.editorUsername">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-white" (click)="this.advancedSearchForm = {}">Reset</button>
+            <button type="submit" class="btn btn-info">Search</button>
+            <button type="button" class="btn btn-white" (click)="c('Close click')">Cancel</button>
+        </div>
+    </form>
+</ng-template>

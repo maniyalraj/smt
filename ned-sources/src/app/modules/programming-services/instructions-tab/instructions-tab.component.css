@@ -1,0 +1,4 @@
+.status-ddl {position:absolute; top:200px; right:15px;}
+.ui-paginator .ui-dropdown {right:70px;}
+.cursor {position: absolute; right: 23px}
+.cursor:hover {outline: none; text-decoration: none; color: #72afd2 !important;}

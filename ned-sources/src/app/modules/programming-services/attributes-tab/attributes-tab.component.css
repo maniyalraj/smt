@@ -1,0 +1,31 @@
+.ui-editable-column {padding: 0px 20px!important; height: 60px !important;}
+.ui-datatable .ui-datatable-data>tr>td {padding: 20px 10px; vertical-align: top;}
+
+.ui-datatable-tablewrapper table tbody tr:hover {background: #ededed;}
+.ui-datatable-odd:hover {background: #ededed !important;}
+.hover-none .ui-datatable-odd:hover {background: #fff !important;}
+
+.ui-cell-editor {width: 45%;}
+.ui-cell-editor div.ui-dropdown label {font-size: 12px;}
+
+.cursor {cursor: pointer}
+
+.ui-overlaypanel {width: 350px; box-shadow: 0px 0px 5px #1f89ce;}
+
+.modal-footer {border-top:none}
+
+.add-btn-position {position: absolute; bottom: 10px}
+
+.pro-source-btn {background: #ebebeb; color: #212121; -webkit-border-radius: 6px; -moz-border-radius: 6px; border-radius: 6px; padding: 5px 10px 4px; font-size: 12px;}
+
+.ui-datatable tbody > tr.ui-widget-content.ui-state-highlight {background-color:#fff; border-top: 1px solid #e4e8eb;}
+.ui-datatable tbody > tr.ui-widget-content.ui-datatable-odd {border-top: 1px solid #e4e8eb;}
+.ui-chkbox .ui-chkbox-icon {padding-top: 3px;}
+
+.btn-add{padding: 6px 25px}
+
+.ng-tns-c5-17 {top:-113px !important;}
+
+.status-ddl {position:absolute; top:200px; right:15px;}
+
+.btn.disabled, .btn:disabled {background-color: #cdcdcd; border-color: #d5d5d5; color: #a6a6a6; cursor:default}

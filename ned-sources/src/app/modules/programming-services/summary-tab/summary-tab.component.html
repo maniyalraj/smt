@@ -1,0 +1,251 @@
+<div class="status-ddl">
+  <div class="pt5 fl pr20">
+    <label class="control-label">Status:</label>
+  </div>
+  <div class="fl" style="min-width:225px">
+    <p-dropdown [options]="status" [disabled]="true" [(ngModel)]="summaryTabData?.progservStatus.name" name="progservStatus.name"></p-dropdown>
+  </div>
+</div>
+<div class="box-header bg-white pl30 pt20 pb15 border">
+  <h3 class="box-title fs18 txt-violet">Programming Service Details</h3>
+</div>
+<div class="box-body bg-white border nbt pt20">
+  <div class="row">
+    <div class="col-md-1 text-center prn">
+      <img src="assets/images/defult-chnl-logo-img.png" width="70" alt="">
+    </div>
+    <div class="col-md-11 pln pt20 txt-blue">{{summaryTabData?.sourceName}}</div>
+  </div>
+  <div class="row mb10">
+    <div class="col-md-4">
+      <ul>
+        <li class="mt15" style="height: 49px;">
+          <label class="control-label fs12 txt-grey pl30" style="margin-bottom:0px">Source Type</label>
+          <p>
+            <label class="control-label pl30 txt-black">{{sourceType}}</label>
+          </p>
+        </li>
+        <li class="mt15" style="height: 49px;">
+          <label class="control-label fs12 txt-grey pl30" style="margin-bottom:0px">Time Zone</label>
+          <p>
+            <label class="control-label pl30 txt-black">{{summaryTabData?.timezone?.observingName}}</label>
+          </p>
+        </li>
+        <li class="mt15" style="height: 49px;">
+          <label class="control-label fs12 txt-grey pl30" style="margin-bottom:0px">Station Group</label>
+          <p>
+            <label class="control-label pl30 txt-black">{{summaryTabData?.stationGroup?.name}}</label>
+          </p>
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-4 border nbt nbb">
+      <ul>
+        <li class="mt15" style="height: 49px;">
+          <label class="control-label fs12 txt-grey pl30" style="margin-bottom:0px">Call Sign / Alias</label>
+          <p>
+            <label class="control-label pl30 txt-black">{{callSign}}</label>
+          </p>
+        </li>
+
+        <li class="mt15" style="height: 49px;">
+          <label class="control-label fs12 txt-grey pl30" style="margin-bottom:0px">Preferred Call Sign</label>
+          <p>
+            <label class="control-label pl30 txt-black">{{summaryTabData?.preferredCallSign}}</label>
+          </p>
+        </li>
+        <li class="mt15" style="height: 49px;">
+          <label class="control-label fs12 txt-grey pl30" style="margin-bottom:0px">Launch Date</label>
+          <p>
+            <label class="control-label pl30 txt-black">{{launchDate}}</label>
+          </p>
+        </li>
+        <li class="mt15" style="height: 49px;">
+          <label class="control-label fs12 txt-grey pl30" style="margin-bottom:0px">Off Air Date</label>
+          <p>
+            <label class="control-label pl30 txt-black">{{summaryTabData?.offAirDate}}</label>
+          </p>
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-4">
+      <ul>
+        <li class="mt15" style="height: 49px;">
+          <label class="control-label fs12 txt-grey pl30" style="margin-bottom:0px">Primary Country of Coverage</label>
+          <p>
+            <label class="control-label pl30 txt-black">{{primaryCountryOfCoverage}}</label>
+          </p>
+        </li>
+        <li class="mt15" style="height: 49px;">
+          <label class="control-label fs12 txt-grey pl30" style="margin-bottom:0px">Other countries of Coverage</label>
+          <p>
+            <label class="control-label pl30 txt-black">{{otherCountriesOfCoverage}}</label>
+          </p>
+        </li>
+        <li class="mt15" style="height: 49px;">
+          <label class="control-label fs12 txt-grey pl30" style="margin-bottom:0px">Edited Language</label>
+          <p>
+            <label class="control-label pl30 txt-black" style="margin-bottom:0px">{{editedLanguages}}</label>
+          </p>
+        </li>
+        <li class="mt15" style="height: 49px;">
+          <label class="control-label fs12 txt-grey pl30" style="margin-bottom:0px">Broadcast Language</label>
+          <p>
+            <label class="control-label pl30 txt-black">{{broadcastLanguages}}</label>
+          </p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="box-header bg-white pl30 pt20 pb15 border">
+  <h3 class="box-title fs18 txt-violet">Broadcast Details</h3>
+</div>
+<div class="box-body bg-white border nbt">
+  <div class="row mb10">
+    <div class="col-md-4">
+      <ul>
+        <li class="mt15" style="height: 49px;">
+          <label class="control-label fs12 txt-grey pl30" style="margin-bottom:0px">Broadcast #</label>
+          <p>
+            <label class="control-label pl30 txt-black">{{broadcastNumber}}</label>
+          </p>
+        </li>
+        <li class="mt15" style="height: 49px;">
+          <label class="control-label fs12 txt-grey pl30" style="margin-bottom:0px">Reach</label>
+          <p>
+            <label class="control-label pl30 txt-black">{{summaryTabData?.reach?.name}}</label>
+          </p>
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-4 border nbt nbb">
+      <ul>
+        <li class="mt15" style="height: 49px;">
+          <label class="control-label fs12 txt-grey pl30" style="margin-bottom:0px">Major #</label>
+          <p>
+            <label class="control-label pl30 txt-black">{{majorNumber}}</label>
+          </p>
+        </li>
+        <li class="mt15" style="height: 49px;">
+          <label class="control-label fs12 txt-grey pl30" style="margin-bottom:0px">Minor #</label>
+          <p>
+            <label class="control-label pl30 txt-black">{{minorNumber}}</label>
+          </p>
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-4">
+      <ul>
+        <li class="mt15" style="height: 49px;">
+          <label class="control-label fs12 txt-grey pl30" style="margin-bottom:0px">Affiliation #</label>
+          <p>
+            <label class="control-label pl30 txt-black">{{affiliationNumber}}</label>
+          </p>
+        </li>
+        <li class="mt15" style="height: 49px;">
+          <label class="control-label fs12 txt-grey pl30" style="margin-bottom:0px">DMA Name / Rank</label>
+          <p>
+            <label class="control-label pl30 txt-black">{{summaryTabData?.dma?.name}}</label>
+          </p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="box-header bg-white pl30 pt20 pb15 border">
+  <h3 class="box-title fs18 txt-violet">Address Details</h3>
+</div>
+<div class="box-body bg-white border nbt">
+  <div class="row mb10">
+    <div class="col-md-4">
+      <ul>
+        <li class="mt15" style="height: 49px;">
+          <label class="control-label fs12 txt-grey pl30" style="margin-bottom:0px">Address</label>
+          <p>
+            <label class="control-label pl30 txt-black">
+              {{summaryTabData?.address?.streetLine1}}
+              <span *ngIf="summaryTabData?.address?.streetLine2 != null">, {{summaryTabData?.address?.streetLine2}}</span>
+              <span *ngIf="summaryTabData?.address?.streetLine3 != null">, {{summaryTabData?.address?.streetLine3}}</span>
+            </label>
+          </p>
+        </li>
+        <li class="mt15" style="height: 49px;">
+          <label class="control-label fs12 txt-grey pl30" style="margin-bottom:0px">Country</label>
+          <p>
+            <label class="control-label pl30 txt-black">{{summaryTabData?.address?.country?.name}}</label>
+          </p>
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-4 border nbt nbb">
+      <ul>
+        <li class="mt15" style="height: 49px;">
+          <label class="control-label fs12 txt-grey pl30" style="margin-bottom:0px">Post Code</label>
+          <p>
+            <label class="control-label pl30 txt-black">{{summaryTabData?.address?.postalCode?.text}}</label>
+          </p>
+        </li>
+        <li class="mt15" style="height: 49px;">
+          <label class="control-label fs12 txt-grey pl30" style="margin-bottom:0px">City</label>
+          <p>
+            <label class="control-label pl30 txt-black">{{summaryTabData?.address?.city?.name}}</label>
+          </p>
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-4 ">
+      <ul>
+        <li class="mt15" style="height: 49px;">
+          <label class="control-label fs12 txt-grey pl30" style="margin-bottom:0px">Province</label>
+          <p>
+            <label class="control-label pl30 txt-black">{{summaryTabData?.address?.province?.name}}</label>
+          </p>
+        </li>
+        <li class="mt15" style="height: 49px;">
+          <label class="control-label fs12 txt-grey pl30" style="margin-bottom:0px">Last Updated</label>
+          <p>
+            <label class="control-label pl30 txt-black">{{lastUpdated}}</label>
+          </p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="box-header bg-white pl30 pt20 pb15 border">
+  <h3 class="box-title fs18 txt-violet">Contact Details</h3>
+</div>
+<div class="box-body bg-white border nbt">
+  <div class="row mb10">
+    <div class="col-md-12 pl35 pr35">
+      <table class="table" cellspacing="0">
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Country Code</th>
+            <th>Area Code</th>
+            <th>Main Number</th>
+            <th>Ext</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{summaryTabData?.phoneNumber?.type?.name}}</td>
+            <td>{{summaryTabData?.phoneNumber?.countryCode}}</td>
+            <td>{{summaryTabData?.phoneNumber?.areaCode}}</td>
+            <td>{{summaryTabData?.phoneNumber?.number}}</td>
+            <td>{{summaryTabData?.phoneNumber?.extension}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div class=" pt10 pb10 website-email">
+  <div class="col-md-6 txt-violet fs12 pl45">Website:
+    <a href="http://{{summaryTabData?.website}}" target="_blank">{{summaryTabData?.website}} </a>
+  </div>
+  <div class="col-md-6 txt-violet fs12">Email:
+    <a href="https://mail.google.com/mail/?view=cm&fs=1&to={{summaryTabData?.email}}" target="_blank ">{{summaryTabData?.email}}</a>
+  </div>
+</div>

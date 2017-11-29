@@ -1,0 +1,26 @@
+<div class="status-ddl">
+  <div class="pt5 fl pr20">
+    <label class="control-label">Status:</label>
+  </div>
+  <div class="fl" style="min-width:225px">
+    <p-dropdown [options]="status" [disabled]="true" [(ngModel)]="updateLogTabData?.progservStatus.name" name="progservStatus.name"></p-dropdown>
+  </div>
+</div>
+<div class="box-header bg-white pl30 pt20 pb15 border">
+  <h3 class="box-title fs18 txt-violet">Record History</h3>
+  <div class="box-tools pull-right">
+    <a href="#" id="panel-fullscreen" role="button" title="Toggle fullscreen">
+      <i class="fa fa-expand"></i>
+    </a>
+  </div>
+</div>
+<div class="box-body bg-white border nbt pt20">
+  <p-dataTable [value]="updateLogList" [rows]="10" [paginator]="true" [pageLinks]="3" [rowsPerPageOptions]="[10,25,50,100]"
+    class="hover-none">
+    <p-column field="modifiedBy" header="Modified By" [sortable]="true"></p-column>
+    <p-column field="modifiedDateTime" header="Modified Date/Time" [sortable]="true"></p-column>
+    <p-column field="updateType" header="Update Type" [sortable]="true"></p-column>
+    <p-column field="updateField" header="Updated Field" [sortable]="true"></p-column>
+    <p-column field="previousValue" header="Previous Value" [sortable]="true"></p-column>
+  </p-dataTable>
+</div>

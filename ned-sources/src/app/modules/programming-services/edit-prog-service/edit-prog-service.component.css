@@ -1,0 +1,16 @@
+.ui-widget-header {border: none;}
+.ui-tabview.ui-widget-content {padding: 0px 0px 10px; background: #f6f7f9;}
+.ui-tabview.ui-tabview-top>.ui-tabview-nav {padding: 0px; background: #f6f7f9; border-bottom: 1px solid #eee;}
+.ui-tabview.ui-tabview-top>.ui-tabview-nav li {top: 0px; margin: 0px;}
+.ui-tabview .ui-tabview-nav li {border:none; }
+.ui-tabview .ui-tabview-nav li a {color: #000000; cursor: pointer; padding: 10px 20px;}
+.ui-tabview .ui-tabview-nav li a:hover {color:#b21dac}
+.ui-tabview .ui-tabview-nav li.ui-tabview-selected a {color:#b21dac; cursor: pointer}
+.ui-tabview .ui-tabview-nav > li.ui-state-active {background:#f6f7f9; border-bottom: 1px solid #b21dac}
+.ui-tabview .ui-tabview-nav > li:not(.ui-state-active):not(.ui-state-disabled):hover {background: #f6f7f9;}
+.ui-tabview-panels {margin-top: 10px; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;}
+.ui-tabview .ui-tabview-panel {padding: 0px;}
+
+.loader_container {width:100%;height:100%;display:none;position:fixed;bottom:0;right:0;top:0;left:0;overflow:hidden;z-index:8010;background:url(/assets/images/fancybox_overlay.png)}
+.loader_container .loader_wrapper{background-color:#fff;height:100px;width:100px;position:absolute;left:50%;top:50%;margin-top:-45px;margin-left:-45px;border-radius:50px;padding:5px}
+.loader_container>div>img{width:90px;}

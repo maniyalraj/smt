@@ -1,0 +1,9 @@
+.search-panel {
+    left: 335px;
+    z-index: 9999;
+    top: 10px;
+}
+
+.modal {
+    z-index: 9999 !important;
+}

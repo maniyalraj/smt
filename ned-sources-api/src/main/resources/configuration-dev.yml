@@ -1,0 +1,23 @@
+#Logger Configuration
+logging:
+  level: INFO
+  loggers:
+    com.gracenote.smt.nedsourcesapi: DEBUG
+  appenders:
+        - type: console
+          threshold: ALL
+          timeZone: UTC
+          target: stdout
+          logFormat: "%-6level [%d{HH:mm:ss.SSS}] [%t] %logger{5} - %X{code} %msg %n"
+
+#Server Configuration
+server:
+  applicationConnectors:
+  - type: http
+    port: 8787
+  adminConnectors:
+  - type: http
+    port: 8788
+
+#Application Configuration
+baseUrl: "http://neddevapp04.tmsgf.trb:8080/NedDataServices/"

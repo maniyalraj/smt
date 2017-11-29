@@ -1,0 +1,49 @@
+<div class="loader_container" id="divLoaderPopup">
+  <div class="loader_wrapper">
+      <img src="./assets/images/loader.gif">
+  </div>
+</div>
+<div class="content-wrapper" id="content-wrapper">
+  <section class="content-header pb15">
+    <h1 class="title pl30">Edit Programming Services</h1>
+  </section>
+  <div class="latest-update pt10 pb10 pl15 pr15">
+    <div class="col-md-8">Last Updated: {{lastUpdated}}
+    </div>
+    <div class="col-md-2 txt-orange fs12 latest-update-orange-txt">Source Id: {{editProgServiceResponse?.sourceId}}</div>
+    <div class="col-md-2 txt-orange fs12 latest-update-orange-txt">Progserv Id: {{editProgServiceResponse?.progservId}} </div>
+  </div>
+  <div class="container-fluid pt10">
+    <div class="col-md-3 pln">
+      <select class="form-control">
+        <option *ngFor="let finder of editProgServiceResponse?.finders" [value]="finder?.finderText">{{finder?.finderText}}</option>
+      </select>
+    </div>
+  </div>
+  <div class="clearfix"></div>
+  <section class="content">
+    <p-tabView>
+      <p-tabPanel header="Summary">
+        <app-summary-tab [summaryTabData]="editProgServiceResponse"></app-summary-tab>
+      </p-tabPanel>
+      <p-tabPanel header="Source History">
+        <app-source-history-tab [sourceHistoryTabData]="editProgServiceResponse"></app-source-history-tab>
+      </p-tabPanel>
+      <p-tabPanel header="Attributes">
+        <app-attributes-tab [attributesTabData]="editProgServiceResponse"></app-attributes-tab>
+      </p-tabPanel>
+      <p-tabPanel header="Relationships">
+        <app-relationships-tab [relationshipsTabData]="editProgServiceResponse"></app-relationships-tab>
+      </p-tabPanel>
+      <p-tabPanel header="Contacts">
+        <app-contacts-tab [contactsTabData]="editProgServiceResponse"></app-contacts-tab>
+      </p-tabPanel>
+      <p-tabPanel header="Instructions">
+        <app-instructions-tab [instructionsTabData]="editProgServiceResponse"></app-instructions-tab>
+      </p-tabPanel>
+      <p-tabPanel header="Update Log">
+        <app-update-log-tab [updateLogTabData]="editProgServiceResponse"></app-update-log-tab>
+      </p-tabPanel>
+    </p-tabView>
+  </section>
+</div>

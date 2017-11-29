@@ -1,0 +1,139 @@
+<div class="status-ddl">
+  <div class="pt5 fl pr20">
+    <label class="control-label">Status:</label>
+  </div>
+  <div class="fl" style="min-width:225px">
+    <p-dropdown [options]="status" [(ngModel)]="relationshipsTabData?.progservStatus.name" name="progservStatus.name"></p-dropdown>
+  </div>
+</div>
+<div class="box-header bg-white pl30 pt20 pb15 border">
+  <h3 class="box-title fs18 txt-violet">Relationships Between Sources</h3>
+  <div class="box-tools pull-right">
+    <a class="cursor" (click)="add.toggle($event)" role="button">
+      <i class="fa fa-plus" aria-hidden="true"></i>
+    </a>
+    <a href="#" id="panel-fullscreen" role="button" title="Toggle fullscreen">
+      <i class="fa fa-expand"></i>
+    </a>
+  </div>
+
+</div>
+<div class="box-body bg-white border nbt pt20 mb15">
+  <!-- <p-dataTable [value]="" [editable]="true" [rows]="3" [paginator]="true" [pageLinks]="3" [rowsPerPageOptions]="[10,25,50,100]">
+    <p-column field="name" header="Key Subject" [editable]="true" [sortable]="true">
+      <ng-template let-col let-car="rowData" pTemplate="editor">
+        <p-dropdown [(ngModel)]="sourceTypesList[col.field]" [options]="sourceTypeSelect2Dropdown" [autoWidth]="false" required="true"
+          appendTo="body"></p-dropdown>
+      </ng-template>
+    </p-column>
+    <p-column field="tag" header="Topic" [editable]="true" [sortable]="true">
+      <ng-template let-col let-car="rowData" pTemplate="editor">
+        <p-dropdown [(ngModel)]="sourceTypesList[col.field]" [options]="sourceTypeSelect2Dropdown" [style]="{width:25% !important}"
+          [autoWidth]="tag" required="true" appendTo="body"></p-dropdown>
+      </ng-template>
+    </p-column>
+    <p-column field="name" header="Instruction" [editable]="true" [sortable]="true">
+      <ng-template let-col let-car="rowData" pTemplate="editor">
+        <p-dropdown [(ngModel)]="sourceTypesList[col.field]" [options]="sourceTypeSelect2Dropdown" [autoWidth]="false" required="true"
+          appendTo="body"></p-dropdown>
+      </ng-template>
+    </p-column>
+    <p-column field="tag" header="Name" [editable]="true" [sortable]="true">
+      <ng-template let-col let-car="rowData" pTemplate="editor">
+        <p-dropdown [(ngModel)]="sourceTypesList[col.field]" [options]="sourceTypeSelect2Dropdown" [autoWidth]="tag" required="true"
+          appendTo="body"></p-dropdown>
+      </ng-template>
+    </p-column>
+    <p-column field="name" header="Date/ Time" [editable]="true" [sortable]="true">
+      <ng-template let-col let-car="rowData" pTemplate="editor">
+        <p-dropdown [(ngModel)]="sourceTypesList[col.field]" [options]="sourceTypeSelect2Dropdown" [autoWidth]="false" required="true"
+          appendTo="body"></p-dropdown>
+      </ng-template>
+    </p-column>
+  </p-dataTable>-->
+</div>
+
+<div class="box-header bg-white pl30 pt20 pb15 border">
+  <h3 class="box-title fs18 txt-violet">Mappings</h3>
+  <div class="box-tools pull-right">
+    <a class="cursor" (click)="mappingadd.toggle($event)" role="button">
+      <i class="fa fa-plus" aria-hidden="true"></i>
+    </a>
+    <a href="#" id="panel-fullscreen" role="button" title="Toggle fullscreen">
+      <i class="fa fa-expand"></i>
+    </a>
+  </div>
+</div>
+<div class="box-body bg-white border nbt pt20 mb15">
+  <!-- <p-dataTable [value]="" [editable]="true" [rows]="3" [paginator]="true" [pageLinks]="3" [rowsPerPageOptions]="[10,25,50,100]">
+    <p-column field="name" header="Key Subject" [editable]="true" [sortable]="true">
+      <ng-template let-col let-car="rowData" pTemplate="editor">
+        <p-dropdown [(ngModel)]="sourceTypesList[col.field]" [options]="sourceTypeSelect2Dropdown" [autoWidth]="false" required="true"
+          appendTo="body"></p-dropdown>
+      </ng-template>
+    </p-column>
+    <p-column field="tag" header="Type" [editable]="true" [sortable]="true">
+      <ng-template let-col let-car="rowData" pTemplate="editor">
+        <p-dropdown [(ngModel)]="sourceTypesList[col.field]" [options]="sourceTypeSelect2Dropdown" [style]="{width:25% !important}"
+          [autoWidth]="tag" required="true" appendTo="body"></p-dropdown>
+      </ng-template>
+    </p-column>
+    <p-column field="name" header="Instruction" [editable]="true" [sortable]="true">
+      <ng-template let-col let-car="rowData" pTemplate="editor">
+        <p-dropdown [(ngModel)]="sourceTypesList[col.field]" [options]="sourceTypeSelect2Dropdown" [autoWidth]="false" required="true"
+          appendTo="body"></p-dropdown>
+      </ng-template>
+    </p-column>
+    <p-column field="tag" header="Name" [editable]="true" [sortable]="true">
+      <ng-template let-col let-car="rowData" pTemplate="editor">
+        <p-dropdown [(ngModel)]="sourceTypesList[col.field]" [options]="sourceTypeSelect2Dropdown" [autoWidth]="tag" required="true"
+          appendTo="body"></p-dropdown>
+      </ng-template>
+    </p-column>
+    <p-column field="name" header="Date/ Time" [editable]="true" [sortable]="true">
+      <ng-template let-col let-car="rowData" pTemplate="editor">
+        <p-dropdown [(ngModel)]="sourceTypesList[col.field]" [options]="sourceTypeSelect2Dropdown" [autoWidth]="false" required="true"
+          appendTo="body"></p-dropdown>
+      </ng-template>
+    </p-column>
+  </p-dataTable>-->
+</div>
+<div class="col-md-12 ac mt15">
+  <button type="submit" class="btn btn-info mr15">Save</button>
+  <button type="button" class="btn btn-white">Cancel</button>
+</div>
+<div class="clearfix"></div>
+
+<p-overlayPanel #add>
+  <div class="p10">
+    <div class="form-group">
+      <label for="field-7" class="control-label">Type</label>
+      <p-dropdown [options]="" name="Type"></p-dropdown>
+    </div>
+    <div class="form-group">
+      <label for="field-7" class="control-label">Value</label>
+      <p-dropdown [options]="" name="Value"></p-dropdown>
+    </div>
+    <div class="modal-footer">
+      <button type="submit" class="btn btn-info">Apply</button>
+      <button type="button" class="btn btn-white">Cancel</button>
+    </div>
+  </div>
+</p-overlayPanel>
+
+<p-overlayPanel #mappingadd>
+  <div class="p10">
+    <div class="form-group">
+      <label for="field-7" class="control-label">Type</label>
+      <p-dropdown [options]="sourceTypeSelect2Dropdown" name="Type"></p-dropdown>
+    </div>
+    <div class="form-group">
+      <label for="field-7" class="control-label">Value</label>
+      <p-dropdown [options]="sourceTypeSelect2Dropdown" name="Value"></p-dropdown>
+    </div>
+    <div class="modal-footer">
+      <button type="submit" class="btn btn-info">Apply</button>
+      <button type="button" class="btn btn-white">Cancel</button>
+    </div>
+  </div>
+</p-overlayPanel>
