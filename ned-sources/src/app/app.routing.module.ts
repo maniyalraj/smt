@@ -10,6 +10,7 @@ import { LoginComponent } from './modules/login/login/login.component';
 import { LogoutComponent } from './modules/login/logout/logout.component';
 import { AuthenticationGuard } from './guards/authentication.guard';
 import { DemoComponent } from './modules/programming-services/demo/demo.component';
+import { IceGridHolderComponent } from './ice-grid-holder/ice-grid-holder.component';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -17,6 +18,7 @@ const appRoutes: Routes = [
   { path: 'advanced-search', component: AdvancedSearchComponent, canActivate: [AuthenticationGuard] },
   { path: 'edit-prog-service/:progServiceId', component: EditProgServiceComponent, canActivate: [AuthenticationGuard] },
   { path: 'demo', component: DemoComponent, canActivate: [AuthenticationGuard] },
+  { path: 'iceGrid', component: IceGridHolderComponent, canActivate: [AuthenticationGuard] },
   /*{ path: 'user-management', component: UserComponent, canActivate: [AuthGuard] },*/
   { path: '', redirectTo: '/advanced-search', pathMatch: 'full' },//default path
   { path: '**', component: PageNotFoundComponent, canActivate: [AuthenticationGuard] }

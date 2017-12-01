@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {DynamicServiceService} from './dynamic-service.service';
+import { AdItem } from './aditem';
 
 @Component({
   selector: 'app-root',
@@ -7,8 +9,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent
 {
-  constructor() {
+  ads:AdItem[];
+  constructor(private dynamicService:DynamicServiceService) {
     
+  }
+
+  ngOnInit() {
+    this.ads = this.dynamicService.getData();
+    console.log(this.ads);
   }
 
   isUserLoggedIn()
