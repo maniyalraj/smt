@@ -60,6 +60,31 @@ export class DynamicServiceService {
               data: [28, 48, 40, 19, 86, 27, 90]
             }
           ]
+        },
+        options:{
+          scales: {
+            xAxes: [{
+            gridLines: {
+            color: "black",
+            display: false,
+            },
+            stacked: true
+            }],
+            
+            yAxes: [{
+            scaleLabel: {
+            display: true,
+            labelString: 'Load in %',
+            fontColor: "black",
+            },
+            gridLines: {
+            color: "black",
+            display: true,
+            },
+            stacked: true
+            }]
+            }
+
         }
       })];
     })

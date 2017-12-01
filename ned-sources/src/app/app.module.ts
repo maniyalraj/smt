@@ -43,6 +43,7 @@ import { FirstComponentComponent } from './first-component/first-component.compo
 import { ToPumpComponent } from './to-pump/to-pump.component';
 import { DynamicModule } from 'ng-dynamic-component';
 import { BarChartComponent } from './bar-chart/bar-chart.component';
+import { PieChartComponent } from './pie-chart/pie-chart.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { BarChartComponent } from './bar-chart/bar-chart.component';
     ViewHolderComponent,
     FirstComponentComponent,
     ToPumpComponent,
-    BarChartComponent
+    BarChartComponent,
+    PieChartComponent
     // DynamicComponentLoaderDirective
   ],
   imports: [
@@ -85,7 +87,7 @@ import { BarChartComponent } from './bar-chart/bar-chart.component';
     LookupService,
     DynamicServiceService
   ],
-  entryComponents:[FirstComponentComponent,ToPumpComponent,ViewHolderComponent,BarChartComponent],
+  entryComponents:[FirstComponentComponent,ToPumpComponent,ViewHolderComponent,BarChartComponent,PieChartComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

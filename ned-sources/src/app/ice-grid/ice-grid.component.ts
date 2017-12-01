@@ -100,8 +100,8 @@ export class IceGridComponent implements OnInit {
     if(localStorage.getItem('dashBoardPerference')==null){
     this.dashboard = [
       {cols: 2, rows: 1, y: 0, x: 0 , chartId:1},
-      {cols: 4, rows: 4, y: 0, x: 2, chartId:2},
-      {cols: 1, rows: 1, y: 0, x: 4, htmlContent:'<app-test-comp></app-test-comp>'},
+      {cols: 4, rows: 4, y: 0, x: 2, chartId:3},
+      {cols: 1, rows: 1, y: 0, x: 4,chartId:2},
       {cols: 1, rows: 1, y: 2, x: 5},
       {cols: undefined, rows: undefined, y: 1, x: 0},
       {cols: 1, rows: 1, y: undefined, x: undefined},

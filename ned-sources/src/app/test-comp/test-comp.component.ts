@@ -7,6 +7,7 @@ import { SimpleChange } from '@angular/core/src/change_detection/change_detectio
 import { ViewHolderComponent } from '../view-holder/view-holder.component';
 import { AdComponent } from '../ad.component';
 import { BarChartComponent } from '../bar-chart/bar-chart.component';
+import { PieChartComponent } from '../pie-chart/pie-chart.component';
 
 
 @Component({
@@ -53,30 +54,52 @@ export class TestCompComponent implements OnInit {
           this.ads = result;
           //this.ads=[new AdItem(ToPumpComponent, {name: "During API CAll", bio: 'Brave as they come'})]
           console.log('API Call Complete');
-          //let adItem = this.ads[0];
-          let adItem=new AdItem(BarChartComponent, {
-            data: {
-              labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-              datasets: [
-                {
-                  label: 'My First dataset',
-                  backgroundColor: '#42A5F5',
-                  borderColor: '#1E88E5',
-                  data: [65, 59, 80, 81, 56, 55, 40]
-                },
-                {
-                  label: 'My Second dataset',
-                  backgroundColor: '#9CCC65',
-                  borderColor: '#7CB342',
-                  data: [28, 48, 40, 19, 86, 27, 90]
-                }
-              ]
-            }
-          })
+          console.log(result);
+          let adItem = this.ads[0];
+          // let adItem=new AdItem(BarChartComponent, {
+          //   data: {
+          //     labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+          //     datasets: [
+          //       {
+          //         label: 'My First dataset',
+          //         backgroundColor: '#42A5F5',
+          //         borderColor: '#1E88E5',
+          //         data: [65, 59, 80, 81, 56, 55, 40]
+          //       },
+          //       {
+          //         label: 'My Second dataset',
+          //         backgroundColor: '#9CCC65',
+          //         borderColor: '#7CB342',
+          //         data: [28, 48, 40, 19, 86, 27, 90]
+          //       }
+          //     ]
+          //   }
+          // })
 
           this.resolveView(adItem);
         }
       );
+    }
+    else if(this.index==3)
+    {
+      let aditem= new AdItem(PieChartComponent,{
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        datasets: [
+            {
+                label: 'First Dataset',
+                data: [65, 59, 80, 81, 56, 55, 40],
+                fill: false,
+                borderColor: '#4bc0c0'
+            },
+            {
+                label: 'Second Dataset',
+                data: [28, 48, 40, 19, 86, 27, 90],
+                fill: false,
+                borderColor: '#565656'
+            }
+        ]
+    });
+      this.resolveView(aditem);
     }
   }
 
