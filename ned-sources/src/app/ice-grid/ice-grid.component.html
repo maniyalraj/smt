@@ -3,9 +3,11 @@
 <mat-sidenav-container>
   <gridster [options]="options">
     <gridster-item [item]="item" *ngFor="let item of dashboard">
+        <i class="fa fa-pencil" aria-hidden="true"></i>
       <div class="button-holder">
-          <div class="gridster-item-content" *ngIf="item.chartId">
-              <app-test-comp [index]="item.chartId" ></app-test-comp>
+          <div class="gridster-item-content" *ngIf="item.chartId" style="width:100%;height:100%">
+              
+              <app-test-comp [index]="item.chartId" style="width:100%;height:100%" ></app-test-comp>
           </div>
         <!-- <div class="gridster-item-content" *ngIf="item.hasContent">
           <div class="stuff">
